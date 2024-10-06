@@ -4,7 +4,7 @@ const { MongoClient, ObjectId } = require('mongodb')
 
 // Preparamos as informações de acesso ao banco de dados
 const dbUrl = process.env.DATABASE_URL
-const dbName = 'mongodb-intro-e-implementacao'
+const dbName = 'organizacao-de-projeto-em-arquitetura-mvc'
 
 // Declaramos a função main()
 async function main() {
@@ -23,7 +23,7 @@ async function main() {
     res.send('Hello World!')
   })
 
-  const lista = ['Java', 'Kotlin', 'Android']
+  // const lista = ['Java', 'Kotlin', 'Android']
   //              0       1         2
 
   // Endpoint Read All [GET] /personagens
@@ -42,7 +42,7 @@ async function main() {
   // Endpoint Read by ID [GET] /personagem/:id
   app.get('/personagem/:id', async function (req, res) {
     // Acessamos o parâmetro de rota ID
-    const id = req.params.id
+    const id = String(req.params.id)
 
     // Acessa o item na collection usando o ID 
     const item = await collection.findOne( { _id: new ObjectId(id) } )
@@ -84,7 +84,7 @@ async function main() {
   // Endpoint Update [PUT] /personagem/:id
   app.put('/personagem/:id', async function (req, res) {
     // Acessamos o ID dos parâmetros de rota
-    const id = req.params.id
+    const id = String(req.params.id)
 
     // Checamos se o item ID - 1 está na lista
     // Exibendo uma mensagem caso contrario 
@@ -124,7 +124,7 @@ async function main() {
   // Endpoint Delete [DELETE] /personagem/:id
   app.delete('/personagem/:id', async function (req, res) {
     // Acessamos o parâmetro de rota
-    const id = req.params.id
+    const id = String(req.params.id)
 
     // Checamos se o item ID - 1 está na lista
     // Exibendo uma mensagem caso contrario 
