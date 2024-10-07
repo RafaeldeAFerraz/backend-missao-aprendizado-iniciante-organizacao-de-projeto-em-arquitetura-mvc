@@ -1,8 +1,14 @@
-function readAll(req, res) {
-  res.send('Read All')
+const service = require('./personagem.service')
+
+async function readAll(req, res) {
+  // Acessamos a lista de personagens no service
+  const items = await service.readAll()
+
+  // Enviamos a lista de personagens como resultado
+  res.send(items)
 }
 
-function readById(req, res) {
+function readById(req, res) { 
   res.send('Read by ID')
 }
 

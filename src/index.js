@@ -27,13 +27,7 @@ async function main() {
 
   // FIX: mover isso para a pasta `personagem`
   /*
-  // Endpoint Read All [GET] /personagens
-  app.get('/personagem', async function (req, res) {
-    // Acessamos a lista de itens na collection do MongoDB
-    const itens = await collection.find().toArray()
-    res.send(itens)
-  })
-
+  
   // // Endpoint Count [GET] /personagem/count
   // app.get("/personagem/count", function (req, res) {
   //   const totalItens = lista.length;
